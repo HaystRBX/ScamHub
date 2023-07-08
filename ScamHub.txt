@@ -1,0 +1,164 @@
+--[[
+
+		Gui2Lua™
+		10zOfficial
+		Version 1.0.0
+
+]]
+
+
+-- Instances
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local TextButton = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local TextLabel_3 = Instance.new("TextLabel")
+local UICorner_6 = Instance.new("UICorner")
+
+-- Properties
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.new(0.0666667, 0.0666667, 0.0666667)
+Frame.BorderColor3 = Color3.new(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.0346494764, 0, 0.626292467, 0)
+Frame.Size = UDim2.new(0, 324, 0, 224)
+
+UICorner.Parent = Frame
+UICorner.CornerRadius = UDim.new(0, 12)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.new(0.0470588, 0.0470588, 0.0470588)
+TextLabel.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 256, 0, 49)
+TextLabel.Font = Enum.Font.ArialBold
+TextLabel.Text = "SCAM HUB"
+TextLabel.TextColor3 = Color3.new(1, 1, 1)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14
+TextLabel.TextWrapped = true
+
+UICorner_2.Parent = TextLabel
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.new(0.0431373, 0.0431373, 0.0431373)
+TextButton.BorderColor3 = Color3.new(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.19135803, 0, 0.272321433, 0)
+TextButton.Size = UDim2.new(0, 200, 0, 50)
+TextButton.Font = Enum.Font.ArialBold
+TextButton.Text = "Lag Server"
+TextButton.TextColor3 = Color3.new(1, 1, 1)
+TextButton.TextScaled = true
+TextButton.TextSize = 14
+TextButton.TextWrapped = true
+
+UICorner_3.Parent = TextButton
+UICorner_3.CornerRadius = UDim.new(0, 10)
+
+TextButton_2.Parent = Frame
+TextButton_2.BackgroundColor3 = Color3.new(0.0431373, 0.0431373, 0.0431373)
+TextButton_2.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(0.19135803, 0, 0.522321403, 0)
+TextButton_2.Size = UDim2.new(0, 200, 0, 50)
+TextButton_2.Font = Enum.Font.ArialBold
+TextButton_2.Text = "Scam Player"
+TextButton_2.TextColor3 = Color3.new(1, 1, 1)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14
+TextButton_2.TextWrapped = true
+
+UICorner_4.Parent = TextButton_2
+UICorner_4.CornerRadius = UDim.new(0, 10)
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.new(0.0470588, 0.0470588, 0.0470588)
+TextLabel_2.BackgroundTransparency = 1
+TextLabel_2.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.111111119, 0, 0.825892866, 0)
+TextLabel_2.Size = UDim2.new(0, 251, 0, 29)
+TextLabel_2.Font = Enum.Font.ArialBold
+TextLabel_2.Text = "Credits to Zyex"
+TextLabel_2.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14
+TextLabel_2.TextWrapped = true
+
+UICorner_5.Parent = TextLabel_2
+
+TextLabel_3.Parent = Frame
+TextLabel_3.BackgroundColor3 = Color3.new(0.0470588, 0.0470588, 0.0470588)
+TextLabel_3.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0.771604955, 0, 0, 0)
+TextLabel_3.Size = UDim2.new(0, 74, 0, 49)
+TextLabel_3.Font = Enum.Font.ArialBold
+TextLabel_3.Text = "V1"
+TextLabel_3.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_3.TextSize = 35
+TextLabel_3.TextWrapped = true
+
+UICorner_6.Parent = TextLabel_3
+
+-- Scripts
+
+local function KNZG_fake_script() -- Frame.DraggableGUI 
+	local script = Instance.new('LocalScript', Frame)
+
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			if gui.Visible then
+				update(input)
+			end
+		end
+	end)
+end
+coroutine.wrap(KNZG_fake_script)()
